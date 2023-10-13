@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputManager // 컴포넌트로 만들 필요가 없다.
 {
@@ -10,6 +11,10 @@ public class InputManager // 컴포넌트로 만들 필요가 없다.
     bool _pressed = false;
     public void OnUpdate() // 체크하는 부분이 유일하다.
     {
+        // 지금 UI버튼이 눌러있는지 확인하는 코드
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
         if (Input.anyKey && keyAction != null)
             keyAction.Invoke();
 
