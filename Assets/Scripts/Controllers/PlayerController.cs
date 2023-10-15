@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         Managers.Input.MouseAction -= OnMouseClicked;
         Managers.Input.MouseAction += OnMouseClicked;
 
-        Managers.Resource.Instantiate("UI/UI_Button");
+        //Managers.Resource.Instantiate("UI/UI_Button");
 
         //MyVector pos = new MyVector(0.0f, 10.0f, 0.0f);
         //pos += new MyVector(0.0f, 2.0f, 0.0f);
