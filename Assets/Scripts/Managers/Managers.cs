@@ -11,16 +11,17 @@ public class Managers : MonoBehaviour
     // 어떤 것이 먼저 실행될지 몰라 프로퍼티에 init을 넣은 것이다.
     InputManager _input = new InputManager();
     ResourceManager _resource = new ResourceManager();
-    public static InputManager Input { get { return Instance._input; } }
-    public static ResourceManager Resource {  get { return Instance._resource; } }
+    UIManager _ui = new UIManager();
 
-    // Start is called before the first frame update
+    public static ResourceManager Resource {  get { return Instance._resource; } }
+    public static InputManager Input { get { return Instance._input; } }
+    public static UIManager UI { get { return Instance._ui; } }
+
     void Start()
     {
         Init();
     }
 
-    // Update is called once per frame
     void Update()
     {
         _input.OnUpdate();

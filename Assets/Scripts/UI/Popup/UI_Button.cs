@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_Button : UI_Base // UI_Base를 상속 받자 모노비헤이어도 간접적으로 상속 받는다.
+public class UI_Button : UI_Popup // UI_Base를 상속 받자 모노비헤이어도 간접적으로 상속 받는다.
 {
     enum Buttons
     {
@@ -29,6 +29,13 @@ public class UI_Button : UI_Base // UI_Base를 상속 받자 모노비헤이어도 간접적으�
     }
     private void Start()
     {
+        Init();
+    }
+
+    public override void Init()
+    {
+        base.Init();// 나의 부모님의 init도 호출한다.
+
         Bind<Button>(typeof(Buttons)); // 이 타입을 넘기겠다.(리플렉션이다.)
         Bind<Text>(typeof(Texts));
         Bind<GameObject>(typeof(GameObjects));

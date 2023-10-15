@@ -51,31 +51,18 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // 키보드로 움직이는거는 일단 구현에서 뺀다.
-        //Managers.Input.keyAction -= OnKeyboard;
-        //Managers.Input.keyAction += OnKeyboard;
         Managers.Input.MouseAction -= OnMouseClicked;
         Managers.Input.MouseAction += OnMouseClicked;
 
-        //Managers.Resource.Instantiate("UI/UI_Button");
-
-        //MyVector pos = new MyVector(0.0f, 10.0f, 0.0f);
-        //pos += new MyVector(0.0f, 2.0f, 0.0f);
-        //
-        //MyVector to = new MyVector(10.0f, 0.0f, 0.0f);
-        //MyVector from = new MyVector(5.0f, 0.0f, 0.0f);
-        //MyVector dir = to - from;
-        // 방향벡터는 2가지 정보를 얻을 수 있다.
-        // 1. 거리(크기) -> 5 (magnitude)
-        // 2. 실제 방향 (normalized)
-        //dir = dir.normalized;
-
-        //MyVector newPos = from + dir * _speed; // from이라는 점에서 dir방향으로 speed만큼 이동
+        // Test
+        Managers.UI.ShowPopupUI<UI_Button>();
+        //Managers.UI.ClosePopupUI();
+        //Managers.UI.ClosePopupUI(ui); // 안전한 삭제이다.
     }
 
     // Update is called once per frame
     float _yAngle = 0.0f;
-    float wait_run_ratio = 0.0f;
+    //float wait_run_ratio = 0.0f;
 
     public enum PlayerState
     {

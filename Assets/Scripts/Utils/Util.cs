@@ -7,6 +7,7 @@ public class Util : MonoBehaviour
 {
     public static T GetOrAddComponent<T>(GameObject go) where T : UnityEngine.Component
     {
+        // 컴포넌트를 빼오는 함수 있는데 없으면 컴포넌트를 추가해주고 있으면 있는 걸 반환해준다.
         T component = go.GetComponent<T>();
         if (component == null) // 없으면 T를 컴포넌트로 추가해준다.
         {
