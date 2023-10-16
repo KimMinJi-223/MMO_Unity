@@ -48,10 +48,10 @@ public class UI_Button : UI_Popup // UI_Base를 상속 받자 모노비헤이어도 간접적으
 
         // Images.ItemIcon여기에는 컴포넌트가 있다. 이 컴포턴트의 게임오브젝트에 접근해서 그 오브젝트가 가지고 있는 UI_이벤트핸들러를 가져온다.
 
-        GetButton((int)Buttons.PointButton).gameObject.AddUIEvent(OnButtonClicked);
+        GetButton((int)Buttons.PointButton).gameObject.BindUIEvent(OnButtonClicked);
 
         GameObject go = GetImage((int)Images.ItemIcon).gameObject;
-        AddUIEvent(go.gameObject, ((PointerEventData data) => { go.transform.position = data.position; }), Define.UIEvent.Drag);
+        BindUIEvent(go.gameObject, ((PointerEventData data) => { go.transform.position = data.position; }), Define.UIEvent.Drag);
     }
 
     int _score = 0;

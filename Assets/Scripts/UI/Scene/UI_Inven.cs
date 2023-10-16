@@ -28,10 +28,12 @@ public class UI_Inven : UI_Scene
         // 실제 게임에서는 인벤토리 데이터를 통해 여기를 채워준다.
         for(int i = 0; i<8; i++)
         {
-            GameObject item = Managers.Resource.Instantiate("UI/Scene/UI_Inven_Item");
-            item.transform.SetParent(gridPanel.transform);
-            
-            UI_Inven_Item invenItem = Util.GetOrAddComponent<UI_Inven_Item>(item); // 이걸 안하면 아이템 아이콘 프리팹에 스크립트가 안 붙어서 스크립트가 실행되지 않는다. // 근데 에디터에서 붙여줘서 에디터에 붙여준 컴포넌트를 반환함
+            GameObject item = Managers.UI.MakeSubItem<UI_Inven_Item>(gridPanel.transform).gameObject;
+         
+            //UI_Inven_Item invenItem = Util.GetOrAddComponent<UI_Inven_Item>(item); // 이걸 안하면 아이템 아이콘 프리팹에 스크립트가 안 붙어서 스크립트가 실행되지 않는다. // 근데 에디터에서 붙여줘서 에디터에 붙여준 컴포넌트를 반환함
+            // 위에 말고 아래 방식으로 하면 인터페이스가 더 간단하다.
+            UI_Inven_Item invenItem = item.GetOrAddComponent<UI_Inven_Item>();
+
             invenItem.SetInfo($"집행검{i}번");
         }
     }

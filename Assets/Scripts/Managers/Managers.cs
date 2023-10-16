@@ -11,10 +11,13 @@ public class Managers : MonoBehaviour
     // 어떤 것이 먼저 실행될지 몰라 프로퍼티에 init을 넣은 것이다.
     InputManager _input = new InputManager();
     ResourceManager _resource = new ResourceManager();
+    SceneManagerEx _scene = new SceneManagerEx();
     UIManager _ui = new UIManager();
+
 
     public static ResourceManager Resource {  get { return Instance._resource; } }
     public static InputManager Input { get { return Instance._input; } }
+    public static SceneManagerEx Scene { get { return Instance._scene; } }
     public static UIManager UI { get { return Instance._ui; } }
 
     void Start()

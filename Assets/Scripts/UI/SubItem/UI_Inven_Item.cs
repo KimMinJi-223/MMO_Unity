@@ -25,7 +25,7 @@ public class UI_Inven_Item : UI_Base
 
         Get<GameObject>((int)GameObjects.ItemNameText).GetComponent<Text>().text = _name;
 
-        Get<GameObject>((int)GameObjects.ItemIcon).AddUIEvent((PointerEventData) => { Debug.Log($"아이템{_name}번 클릭"); });
+        Get<GameObject>((int)GameObjects.ItemIcon).BindUIEvent((PointerEventData) => { Debug.Log($"아이템{_name}번 클릭"); });
         // 이 람다식 안에서 PointerEventData사용하지 않는다. 그래서 매개변수 이름을 붙이지 않아도 된다.
     }
 

@@ -44,11 +44,12 @@ public abstract class UI_Base : MonoBehaviour
     }
 
     // 자주 쓰는 것들이라 미리 만들어두자 (<>이거 떄문인듯)
+    protected GameObject GetObject(int idx) {  return Get<GameObject>(idx); }
     protected Text GetText(int idx) { return Get<Text>(idx); }
     protected Button GetButton(int idx) { return Get<Button>(idx); }
     protected Image GetImage(int idx) { return Get<Image>(idx); }
 
-    public static void AddUIEvent(GameObject go, Action<PointerEventData> action, Define.UIEvent type = Define.UIEvent.Click)
+    public static void BindUIEvent(GameObject go, Action<PointerEventData> action, Define.UIEvent type = Define.UIEvent.Click)
     {
         //Action<PointerEventData>는
         //-PointerEventData를 input으로
