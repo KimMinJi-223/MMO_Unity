@@ -7,9 +7,11 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.Windows;
 
-public class UI_Base : MonoBehaviour
+public abstract class UI_Base : MonoBehaviour
 {
     Dictionary<Type, UnityEngine.Object[]> _objects = new Dictionary<Type, UnityEngine.Object[]>();
+
+    public abstract void Init(); // init은 UI_Base가 직접 쓰이지 않기 때문에 자식에서 정의한다.
 
     // 바인드하는 부분
     protected void Bind<T>(Type type) where T : UnityEngine.Object

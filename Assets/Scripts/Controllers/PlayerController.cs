@@ -55,9 +55,11 @@ public class PlayerController : MonoBehaviour
         Managers.Input.MouseAction += OnMouseClicked;
 
         // Test
-        Managers.UI.ShowPopupUI<UI_Button>();
+        //Managers.UI.ShowPopupUI<UI_Button>();
         //Managers.UI.ClosePopupUI();
         //Managers.UI.ClosePopupUI(ui); // 안전한 삭제이다.
+
+        Managers.UI.ShowSceneUI<UI_Inven>();
     }
 
     // Update is called once per frame
