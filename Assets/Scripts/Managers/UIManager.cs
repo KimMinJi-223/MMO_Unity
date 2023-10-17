@@ -12,7 +12,7 @@ public class UIManager
     // 버튼이라는 것을 알 수 있는건 UI컴포넌트가 들고 있다. 그 안에 UI_Popup이 있다.
     // UI_Popup이면 된다. 
     Stack<UI_Popup> _popupStack = new Stack<UI_Popup>();
-    UI_Scene _scene = null;
+    UI_Scene _sceneUI = null;
 
     public GameObject Root
     {
@@ -64,11 +64,11 @@ public class UIManager
 
         GameObject go = Managers.Resource.Instantiate($"UI/Scene/{name}");
         // 여기까지 하면 팝업이 만들어짐
-        // 이제 이 팝업이 가지고 있는 UI_Button 스크립트를 뽑아와야한다.
+    
         T sceneUI = Util.GetOrAddComponent<T>(go);
-        _scene = sceneUI;
+        _sceneUI = sceneUI;
 
-        go.transform.SetParent(Root.transform); // 부모님을 지정
+        go.transform.SetParent(Root.transform);
 
         return sceneUI;
     }
@@ -122,5 +122,11 @@ public class UIManager
     {
         while (_popupStack.Count > 0)
             ClosePopupUI();     
+    }
+    
+    public void Clear()
+    {
+        CloseAllPopupUI();
+        _sceneUI = null;
     }
 }

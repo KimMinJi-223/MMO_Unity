@@ -12,12 +12,14 @@ public class Managers : MonoBehaviour
     InputManager _input = new InputManager();
     ResourceManager _resource = new ResourceManager();
     SceneManagerEx _scene = new SceneManagerEx();
+    SoundManager _sound = new SoundManager();   
     UIManager _ui = new UIManager();
 
 
     public static ResourceManager Resource {  get { return Instance._resource; } }
     public static InputManager Input { get { return Instance._input; } }
     public static SceneManagerEx Scene { get { return Instance._scene; } }
+    public static SoundManager Sound { get { return Instance._sound; } }
     public static UIManager UI { get { return Instance._ui; } }
 
     void Start()
@@ -43,7 +45,17 @@ public class Managers : MonoBehaviour
             }
             DontDestroyOnLoad(go); // 매니저는 삭제되면 안된다. 쉽게 삭제 못하게 하는 것
             s_instance = go.GetComponent<Managers>();
+
+            s_instance._sound.Init();
         }
   
+    }
+
+    public static void Clear()
+    {
+        Input.Clear();
+        Sound.Clear();
+        Scene.Clear();
+        UI.Clear();
     }
 }

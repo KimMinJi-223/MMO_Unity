@@ -12,7 +12,7 @@ public class SceneManagerEx
     }
     public void LoadScene(Define.Scene type)
     {
-        CurrentScene.Clear(); // 현재씬을 날린다.
+        Managers.Clear();
         SceneManager.LoadScene(GetSceneName(type));
     }
 
@@ -20,5 +20,10 @@ public class SceneManagerEx
     {
         string name = System.Enum.GetName(typeof(Define.Scene), type);
         return name;
+    }
+
+    public void Clear()
+    {
+        CurrentScene.Clear(); // 현재씬을 날린다.
     }
 }
