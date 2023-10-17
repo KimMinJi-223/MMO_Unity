@@ -17,6 +17,11 @@ public class GameScene : BaseScene
         //Managers.UI.ClosePopupUI(ui); // 안전한 삭제이다.
 
         Managers.UI.ShowSceneUI<UI_Inven>();
+
+        for (int i = 0; i < 5; i++)
+        {
+            Managers.Resource.Instantiate("UnityChan");
+        }
     }
 
     public override void Clear()

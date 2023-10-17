@@ -46,7 +46,8 @@ public class TestCollision : MonoBehaviour
         //RaycastHit[] hits;
         //hits = Physics.RaycastAll(transform.position + Vector3.up, look, 10);
 
-        //foreach(RaycastHit hit in hits)
+        //
+        //(RaycastHit hit in hits)
         //{
         //    Debug.Log($"RayCast {hit.collider.gameObject.name}");
         //}

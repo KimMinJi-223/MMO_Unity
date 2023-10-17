@@ -10,6 +10,7 @@ public class Managers : MonoBehaviour
 
     // 어떤 것이 먼저 실행될지 몰라 프로퍼티에 init을 넣은 것이다.
     InputManager _input = new InputManager();
+    PoolManager _pool = new PoolManager();   
     ResourceManager _resource = new ResourceManager();
     SceneManagerEx _scene = new SceneManagerEx();
     SoundManager _sound = new SoundManager();   
@@ -17,6 +18,8 @@ public class Managers : MonoBehaviour
 
 
     public static ResourceManager Resource {  get { return Instance._resource; } }
+    public static PoolManager Pool { get { return Instance._pool; } }
+
     public static InputManager Input { get { return Instance._input; } }
     public static SceneManagerEx Scene { get { return Instance._scene; } }
     public static SoundManager Sound { get { return Instance._sound; } }
@@ -46,6 +49,7 @@ public class Managers : MonoBehaviour
             DontDestroyOnLoad(go); // 매니저는 삭제되면 안된다. 쉽게 삭제 못하게 하는 것
             s_instance = go.GetComponent<Managers>();
 
+            s_instance._pool.Init();
             s_instance._sound.Init();
         }
   
@@ -57,5 +61,6 @@ public class Managers : MonoBehaviour
         Sound.Clear();
         Scene.Clear();
         UI.Clear();
+        Pool.Clear(); // 다른 곳에서 풀링된 객체를 사용하고 있을 수도 있으니까 마지막에 클리어 한다.
     }
 }

@@ -10,6 +10,11 @@ public class LoginScene : BaseScene
         base.Init();
 
         SceneType = Define.Scene.Login;
+
+        for(int i = 0; i < 5; i++)
+        {
+            Managers.Resource.Destroy(Managers.Resource.Instantiate("UnityChan"));
+        }
     }
 
     private void Update()
