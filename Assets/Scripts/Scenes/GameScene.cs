@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 
 public class GameScene : BaseScene
@@ -13,7 +14,7 @@ public class GameScene : BaseScene
 
         Managers.UI.ShowSceneUI<UI_Inven>();
 
-        Dictionary<int, Stat> dict = Managers.Data.StatDic;
+        Dictionary<int, Data.Stat> dict = Managers.Data.StatDic;
         
     }
 

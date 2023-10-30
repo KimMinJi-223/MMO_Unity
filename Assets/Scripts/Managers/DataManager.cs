@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using UnityEngine;
 
@@ -11,13 +12,13 @@ public interface ILoader<Key, Value>
 
 public class DataManager 
 {
-    public Dictionary<int, Stat> StatDic { get; private set; } = new Dictionary<int, Stat>();
+    public Dictionary<int, Data.Stat> StatDic { get; private set; } = new Dictionary<int, Data.Stat>();
     // 레벨 정보를 int에 넣어준다.
 
    public void Init()
     {
 
-        StatDic = LoadJson<StatData, int, Stat>("StatData").MakeDict();
+        StatDic = LoadJson<Data.StatData, int, Data.Stat>("StatData").MakeDict();
         //foreach(Stat stat in data.Stats)
         //{
         //    StatDic.Add(stat.level, stat);
