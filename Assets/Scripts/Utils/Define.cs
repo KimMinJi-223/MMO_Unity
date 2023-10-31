@@ -32,7 +32,10 @@ public class Define
     public enum MouseEvent
     {
         Press,
-        Click
+        PointerDown, // 맨 처을 눌렀을때
+        PointerUp, // 올렸을때 // 이거 두개는 몇 초동안 눌렀다가 떼는 그런거로 클릭이랑은 의미가 다름
+        Click, //
+
     }
 
     public enum CameraMode
