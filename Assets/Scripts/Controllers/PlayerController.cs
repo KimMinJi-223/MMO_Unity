@@ -65,8 +65,10 @@ public class PlayerController : MonoBehaviour
 
         Managers.Input.MouseAction -= OnMouseEvent;
         Managers.Input.MouseAction += OnMouseEvent;
-    } 
-    
+
+        Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform);
+    }
+
     public PlayerState State
     {
         get { return _state; }
@@ -77,7 +79,7 @@ public class PlayerController : MonoBehaviour
             Animator anim = GetComponent<Animator>();
             switch (_state)
             {
-                case PlayerState.Die:                   
+                case PlayerState.Die:
                     break;
                 case PlayerState.Idle:
                     anim.CrossFade("WAIT", 0.1f);
@@ -90,7 +92,7 @@ public class PlayerController : MonoBehaviour
                     break;
             }
         }
-         
+
     }
 
     void UpdateDie()
@@ -100,13 +102,13 @@ public class PlayerController : MonoBehaviour
 
     void UpdateMoving()
     {
-      
+
 
         // 몬스터가 내 사정거리 안에 있으면 공격
         if (_lockTarget != null)
         {
             float distance = (_lockTarget.transform.position - transform.position).magnitude;
-            if(distance <= 1)
+            if (distance <= 1)
             {
 
                 State = PlayerState.Skill;
@@ -149,12 +151,12 @@ public class PlayerController : MonoBehaviour
     void UpdateIdle()
     {
 
-    
+
     }
 
     void UpdataSkill()
     {
-        if(_lockTarget != null)
+        if (_lockTarget != null)
         {
             // 검질하때 몬스터를 바라보게
             Vector3 dir = _lockTarget.transform.position - transform.position;
@@ -165,7 +167,15 @@ public class PlayerController : MonoBehaviour
 
     void OnHitEvent()
     {
-        Animator anim = GetComponent<Animator>();
+        if (_lockTarget != null)
+        {
+            Stat targetStat = _lockTarget.GetComponent<Stat>();
+            PlayerStat myStat = gameObject.GetComponent<PlayerStat>();
+            int damage = Mathf.Max(0, myStat.Attack - targetStat.Defense);
+            Debug.Log(damage);
+            targetStat.Hp -= damage;    
+
+        }
 
         if (_stopSkill)
         {
@@ -219,7 +229,7 @@ public class PlayerController : MonoBehaviour
                 break;
         }
 
-       
+
     }
 
     void OnMouseEvent_IdleRun(Define.MouseEvent evt)
@@ -252,7 +262,7 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             case Define.MouseEvent.PointerUp:
-                _stopSkill = true; 
+                _stopSkill = true;
                 break;
 
         }

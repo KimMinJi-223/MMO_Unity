@@ -27,10 +27,6 @@ public class UI_Button : UI_Popup // UI_Base를 상속 받자 모노비헤이어도 간접적으
     {
         ItemIcon
     }
-    private void Start()
-    {
-        Init();
-    }
 
     public override void Init()
     {

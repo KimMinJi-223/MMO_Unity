@@ -13,6 +13,10 @@ public abstract class UI_Base : MonoBehaviour
 
     public abstract void Init(); // init은 UI_Base가 직접 쓰이지 않기 때문에 자식에서 정의한다.
 
+    private void Start()
+    {
+        Init();
+    }
     // 바인드하는 부분
     protected void Bind<T>(Type type) where T : UnityEngine.Object
     {
