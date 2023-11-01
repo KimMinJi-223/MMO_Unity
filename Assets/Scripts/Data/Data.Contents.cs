@@ -11,8 +11,9 @@ namespace Data
     public class Stat
     {
         public int level; // 여기 퍼블릭으로 해야지 읽어진다. 변수 이름도 json이랑 같아야 한다.
-        public int hp;
+        public int maxHp;
         public int attack;
+        public int totalExp;
     }
 
     [Serializable]
