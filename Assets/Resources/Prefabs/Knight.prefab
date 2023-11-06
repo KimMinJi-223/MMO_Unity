@@ -1715,7 +1715,7 @@ MonoBehaviour:
   _destPos: {x: 0, y: 0, z: 0}
   _state: 2
   _lockTarget: {fileID: 0}
-  _scanRange: 50
+  _scanRange: 10
   _attackRange: 2
 --- !u!1 &269197781111161836
 GameObject:
